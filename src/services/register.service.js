@@ -1,7 +1,11 @@
-const { User } = require('../models');
+const connection = require('../database/connection');
 
-async function registerUser(newUser) {
-  const NewUser = await User.create({ ...newUser, role: 'user' });
+async function registerUser({name, password}) {
+  const role = 'user';
+  const NewUser = await connection.execute(`
+  INSERT INTO railway.Users(userName, userPassword, role)
+  VALUES(?,?,?)`,
+  [name, password, role]);
   return NewUser;
 }
 
