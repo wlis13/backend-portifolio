@@ -11,6 +11,9 @@ app.use(cors({ origin: 'https://backend-portifolio-eight.vercel.app'}));
 app.use('/', loginRoutes);
 app.use('/', commentRoutes);
 app.use('/', registerRoutes);
+app.get('/', (req, res) => {
+  res.status(200).json({ message: 'test' });
+})
 
 
 app.listen(3001, () => console.log('Servidor rodando na porta 3001'));
