@@ -6,12 +6,12 @@ const registerRoutes = require('./routes/register.routes');
 
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: 'https://backend-portifolio-eight.vercel.app'}));
+app.use(cors({ origin: 'http://localhost:3000'}));
 
 app.use('/', loginRoutes);
 app.use('/', commentRoutes);
 app.use('/', registerRoutes);
-app.get('/', (req, res) => {
+app.get('/', (_req, res) => {
   res.status(200).json({ message: 'test' });
 })
 
