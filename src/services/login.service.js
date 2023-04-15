@@ -1,10 +1,8 @@
-const { User } = require("../models");
+const connection = require("../database/connection");
 
 
-const loginService = async (userEmail) => {
-  const getUser = await User.findOne({
-    where: { userEmail }
-  })
+const loginService = async () => {
+  const getUser = await connection.execute('SELECT * FROM railway.Users');
   return getUser;
 };
 
