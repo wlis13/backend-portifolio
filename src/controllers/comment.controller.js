@@ -5,7 +5,7 @@ async function findCommentsController(_req, res) {
     const getComments = await findComments();
     res.status(200).json(getComments);
   } catch (error) {
-    return "Houve algum erro ao buscar comentários";
+    res.status(500).json({ message: "Houve algum erro ao buscar comentários" });
   }
 };
 
@@ -15,7 +15,7 @@ async function insertCommentController(req, res) {
     await insertComments(getComment);
     res.status(201).json({ message: "comentário inserido com sucesso!" });
   } catch (error) {
-    return "Houve algum erro ao inserir comentário";
+    res.status(500).json({ message: "Houve algum erro ao inserir comentário" });
   }
 };
 

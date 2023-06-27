@@ -1,12 +1,9 @@
-// const connection = require('../database/connection');
+const register = require("../model/register.model");
 
-// async function registerUser({name, password}) {
-//   const role = 'user';
-//   const NewUser = await connection.execute(`
-//   INSERT INTO railway.Users(userName, userPassword, role)
-//   VALUES(?,?,?)`,
-//   [name, password, role]);
-//   return NewUser;
-// }
+async function registerService(newRegister) {
+  await register.insertMany(newRegister);
+};
 
-// module.exports = registerUser;
+module.exports = {
+  registerService,
+};
