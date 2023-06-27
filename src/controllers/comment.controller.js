@@ -1,19 +1,25 @@
-const { createCommentService } = require("../services/comment.service");
+const { insertComments, findComments } = require("../services/comment.service");
 
-const createCommentController = async (req, res) => {
+async function findCommentsController(_req, res) {
   try {
-    const { id, comment } = req.body;
-  const valueComment = {
-    comment,
-    id,
-  };
-  const createdComment = await createCommentService(valueComment);
-  res.status(201).json(createdComment);
+    const getComments = await findComments();
+    res.status(200).json(getComments);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    return "Houve algum erro ao buscar comentários";
+  }
+};
+
+async function insertCommentController(req, res) {
+  try {
+    const getComment = req.body;
+    await insertComments(getComment);
+    res.status(201).json({ message: "comentário inserido com sucesso!" });
+  } catch (error) {
+    return "Houve algum erro ao inserir comentário";
   }
 };
 
 module.exports = {
-  createCommentController,
+  insertCommentController,
+  findCommentsController,
 };

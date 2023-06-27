@@ -1,13 +1,15 @@
-// const connection = require('../database/connection');
+const tableComment = require("../model/tableComment.model");
 
-// const createCommentService = async ({ comment, id }) => {
-//   const createdComment = await connection.execute(`
-//     INSERT INTO railway.Comments(comment, userId)
-//       VALUES(?,?)`, 
-//     [comment, id]);
-//   return createdComment;
-// };
+async function findComments() {
+  const getComments = await tableComment.find().exact();
+  return getComments;
+};
 
-// module.exports = {
-//   createCommentService,
-// }
+async function insertComments(newComment) {
+  await tableComment.insertMany(newComment);
+};
+
+module.exports = {
+  findComments,
+  insertComments,
+};
