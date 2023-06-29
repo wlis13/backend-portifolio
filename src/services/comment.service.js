@@ -1,12 +1,12 @@
-const tableComment = require("../model/tableComment.model");
+const comment = require("../model/tableComment.model");
 
 async function findComments() {
-  const getComments = await tableComment.find().exact();
+  const getComments = await comment.find().exact();
   return getComments;
 };
 
 async function insertComments(newComment) {
-  await tableComment.insertMany(newComment);
+  await comment.insertMany(newComment);
 };
 
 module.exports = {
