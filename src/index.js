@@ -18,7 +18,7 @@ const PORT = process.env.PORT;
 app.use('/', commentRoutes);
 app.use('/', registerRoutes);
 
-mongoose.connect('mongodb+srv://wlissesfernando285:SSQDk9wxVNF7UID2@cluster0.2jstabj.mongodb.net/')
+mongoose.connect('mongodb+srv://wlissesfernando285:adminportifolio@cluster0.2jstabj.mongodb.net/')
   .then(() => {
     console.log('Connect database success');
     app.listen(PORT)
