@@ -7,7 +7,9 @@ const registerRoutes = require('./routes/register.routes');
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: ["http://localhost:3000", "https://client-frontend-seven.vercel.app"],
+}));
 
 const PORT = process.env.PORT;
 
