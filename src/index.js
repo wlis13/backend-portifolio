@@ -20,3 +20,5 @@ mongoose.connect('mongodb+srv://wlissesfernando285:SSQDk9wxVNF7UID2@cluster0.2js
     console.log('Connect database success');
     app.listen(PORT)
   });
+
+module.exports = app;
